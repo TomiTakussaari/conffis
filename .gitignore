@@ -1,0 +1,7 @@
+conffis.iml
+node_modules
+.idea
+lib/
+coverage/
+.jest_cache/
+yarn-error.log

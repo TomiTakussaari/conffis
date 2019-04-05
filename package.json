@@ -1,0 +1,89 @@
+{
+  "name": "conffis",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "yarn lint:ts",
+    "lint:ts": "yarn lint:ts:nofix --fix",
+    "lint:ts:nofix": "tslint \"src/**/*.ts\" \"src/**/*.tsx\"",
+    "test": "jest",
+    "test:update-snapshots": "jest --updateSnapshot",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepare": "tsc"
+  },
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.436.0"
+  },
+  "devDependencies": {
+    "@types/node": "10.5.8",
+    "@types/aws-sdk": "2.7.0",
+    "aws-sdk": "2.436.0",
+    "@smartive/tslint-config": "^5.0.0",
+    "@types/jest": "24.0.11",
+    "husky": "1.3.1",
+    "jest": "24.7.1",
+    "lint-staged": "8.1.5",
+    "ts-jest": "24.0.1",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "tslint-config-prettier": "1.15.0",
+    "tslint-react": "3.6.0",
+    "typescript": "3.4.1"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "diagnostics": true,
+        "tsConfig": "tsconfig.jest.json"
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "cacheDirectory": ".jest_cache/",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "."
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "modulePathIgnorePatterns": [
+      ".yarn_cache"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

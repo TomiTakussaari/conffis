@@ -1,0 +1,10 @@
+{
+  "defaultSeverity": "error",
+  "extends": "@smartive/tslint-config/tslint-react",
+  "rules": {
+    "max-line-length": [true, {"limit": 130, "ignore-pattern": "^import |^export {(.*?)}"}],
+    "no-console": [true],
+    "import-blacklist": [true, "lodash"]
+  }
+}
+
